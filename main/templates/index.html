@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Framiza for રંગતાલી નવરાત્રિ</title>
+    <link rel="shortcut icon" href="./assets/posters/favicon.png" type="image/x-icon">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+    <!-- img cropper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"
+        integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css"
+        integrity="sha512-zxBiDORGDEAYDdKLuYU9X/JaJo/DPzE42UubfBw9yg8Qvb2YRRIQ8v4KsGHOx2H1/+sdSXyXxLXv5r7tHc9ygg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@100..900&display=swap');
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div id="loader_container">
+        <div id="loader">
+            <div class="spinner-border text-white" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="main_cnt row">
+            <div class="left_cols col-12 col-sm-4 col-md-3 col-xl-2">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div>
+                        <div class="">
+                            <div class="logo">
+                                <a href="https://codesigngraphics.com/">
+                                    <img src="{% static 'assets/posters/cdgs-logo.png' %}" alt="">
+                                </a>
+                            </div>
+                            <hr>
+                            <p class="detail_heading">Enter your details</p>
+
+                            <div class="mb-4">
+                                <label for="name" class="form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="mobile" class="form-label">Mobile Number:</label>
+                                <input type="number" maxlength="10" class="form-control" name="mobile" id="mobile"
+                                    placeholder="Enter your mobile number">
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">Gender:</label>
+                                <div class="form-check">
+                                    <input data-val="male" class="form-check-input" type="radio" value="male" name="gender"
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Male
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input data-val="female" class="form-check-input" value="female" type="radio"
+                                        name="gender" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Female
+                                    </label>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="mb-5">
+                                <label for="formFile" class="form-label">Image</label>
+                                <input class="form-control" accept="image/*" type="file" id="formFile">
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <!-- <button >Download</button> -->
+                            <input type="submit" name="submit" class="btn btn-primary d-none d-sm-block download_img"
+                                value="Download">
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+            <div class="main_body col-12 col-sm-8 col-md-9 col-xl-10">
+                <!-- header -->
+                <div class="header d-none d-sm-block text-center">
+                    <h2 class="m-0">રંગતાલી નવરાત્રિ આયોજીત <span class="eng-font"> Pre Navratri</span></h2>
+                </div>
+
+                <!-- body -->
+                <div class="poster_cnt">
+
+                    <div class="poster_prev" id="capture">
+                        <img id="profile_img" src="" alt="">
+                        <img class="poster_img male" src="{% static 'assets/posters/rangtali-male.jpg' %}" alt="">
+                        <img class="poster_img female" src="{% static 'assets/posters/rangtali-female.jpg' %}" alt="">
+
+
+                        <p id="user_name_prev"></p>
+                    </div>
+
+
+
+                </div>
+
+                <div class="p-2 my-4 mb-5 d-sm-none">
+                    <button class="btn btn-primary download_img">Download</button>
+                </div>
+
+                <footer class="mt-4">
+                    Developed & Designed by <a target="_blank" href="https://codesigngraphics.com/">Co-Design Graphics
+                        Studio</a>
+                </footer>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <img src="" id="imagePreview" alt="">
+
+    <div class="image_prev_modal">
+        <div id="upload-demo"></div>
+        <div class="btn_cnt">
+            <button class="upload-result btn btn-primary">Save</button>
+            <button class="btn btn-secondary close_preview">Cancel</button>
+        </div>
+    </div>
+
+
+    <!-- js files  -->
+    <script src="{% static 'assets/js/c2i.js' %}"></script>
+    <script src="{% static 'assets/js/index.js' %}"></script>
+
+</body>
+
+</html>
