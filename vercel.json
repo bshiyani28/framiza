@@ -1,23 +1,15 @@
 {
     "builds": [
-        {
-            "src": "myproject/wsgi.py",
-            "use": "@vercel/python",
-            "config": {
-                "maxLambdaSize": "15mb",
-                "runtime": "python3.9"
-            }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "myproject/wsgi.py"
-        }
+      {
+        "src": "manage.py",
+        "use": "@vercel/python"
+      }
     ],
     "build": {
-        "commands": [
-            "python manage.py migrate"
-        ]
+      "commands": [
+        "python manage.py makemigrations",
+        "python manage.py migrate"
+      ]
     }
-}
+  }
+  
