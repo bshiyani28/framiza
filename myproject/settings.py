@@ -155,6 +155,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [BASE_DIR / 'main/static']
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'main/templates']
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# STATIC FILES Settings
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]
@@ -172,4 +180,5 @@ AUTH_USER_MODEL = 'main.CustomUser'
 #         }
 #     }
 # }
+
 
