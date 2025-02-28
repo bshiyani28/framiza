@@ -7,7 +7,6 @@
       { "src": "/(.*)", "dest": "myproject/wsgi.py" }
     ],
     "env": {
-      "DATABASE_URL": "@DATABASE_URL",
       "SECRET_KEY": "@SECRET_KEY"
     }
   }
