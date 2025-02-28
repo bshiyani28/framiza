@@ -80,20 +80,13 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         # 'NAME': BASE_DIR / 'db.sqlite3',
-#         'NAME': os.path.join('/tmp', 'db.sqlite3'),
-#     }
-# }
-
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': os.path.join('/tmp', 'db.sqlite3'),
+    }
 }
-
 
 
 # DATABASES = {
@@ -155,30 +148,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [BASE_DIR / 'main/static']
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'main/templates']
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
 # STATIC FILES Settings
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]
+# STATIC_URL = 'static/'
 # [FILEPATH] main/views.py [/FILEPATH]
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 AUTH_USER_MODEL = 'main.CustomUser'
 
-#  Configure Django to Use Vercel KV
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": os.getenv("VERCEL_KV_REST_API_URL"),  # Use the Vercel KV URL
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
 
+
+# CSRF_TRUSTED_ORIGINS = ['https://myproject-beige-tau.vercel.app']
+# MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 

@@ -1,10 +1,23 @@
-
-  {
-    "version": 2,
-    "installCommand": "pip3 install -r requirements.txt",
-    "buildCommand": "python3 manage.py collectstatic --noinput",
-    "routes": [
-      { "src": "/(.*)", "dest": "myproject/wsgi.py" }
-    ]
-  }
-  
+{
+  "builds": [
+      {
+          "src": "myproject/wsgi.py",
+          "use": "@vercel/python",
+          "config": {
+              "maxLambdaSize": "15mb",
+              "runtime": "python3.12",
+              "buildCommand" : "vercel_postbuild.sh"
+          }
+      }
+  ],
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "myproject/wsgi.py"
+      },
+      {
+        "src": "static/(.*)",
+        "dest": "/static/$1"
+      }
+  ]
+}
