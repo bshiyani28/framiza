@@ -5,9 +5,6 @@
     "buildCommand": "python3 manage.py collectstatic --noinput",
     "routes": [
       { "src": "/(.*)", "dest": "myproject/wsgi.py" }
-    ],
-    "env": {
-      "SECRET_KEY": "@SECRET_KEY"
-    }
+    ]
   }
   
