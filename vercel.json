@@ -1,14 +1,9 @@
 {
-  "builds": [
-      {
-          "src": "myproject/wsgi.py",
-          "use": "@vercel/python"
-      }
-  ],
-  "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "myproject/wsgi.py"
-      }
-  ]
-}
+    "version": 2,
+    "buildCommand": "pip install -r requirements.txt",
+    "outputDirectory": ".",
+    "routes": [
+      { "src": "/(.*)", "dest": "myproject/wsgi.py" }
+    ]
+  }
+  
