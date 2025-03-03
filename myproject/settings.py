@@ -31,7 +31,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app' , '127.0.0.1']
+ALLOWED_HOSTS = ['.vercel.app' , '127.0.0.1' , 'myproject-l1mykl8o7-bshiyani28s-projects.vercel.app']
+
 
 
 # Application definition
@@ -174,6 +175,6 @@ AUTH_USER_MODEL = 'main.CustomUser'
 
 
 
-# CSRF_TRUSTED_ORIGINS = ['https://myproject-beige-tau.vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://myproject-l1mykl8o7-bshiyani28s-projects.vercel.app']
 # MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
