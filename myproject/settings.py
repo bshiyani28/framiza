@@ -31,8 +31,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['.vercel.app' , '127.0.0.1' , 'myproject-l1mykl8o7-bshiyani28s-projects.vercel.app']
-ALLOWED_HOSTS = ['myproject-beige-tau.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app' , '127.0.0.1' ]
 
 
 
