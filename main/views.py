@@ -9,7 +9,7 @@ def index(request):
         name = request.POST.get("name")
         gender = request.POST.get("gender")
         mobile = request.POST.get("mobile")
-        print(f"Name: {name}, Gender: {gender}, Mobile: {mobile}")  # Just for testing
+        # print(f"Name: {name}, Gender: {gender}, Mobile: {mobile}")  # Just for testing
         
     obj = UserData(
         name = name,
