@@ -93,22 +93,39 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'framiza',
-#         'USER': 'bshiyani28',
-#         'PASSWORD': 'Codesign@2310',
-#         'HOST': 'db.vwohjpizkygecqrsrbxq.supabase.co',
-#         'PORT': '5432',
-#     }
-# }
-
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_name'),
+        'USER': config('DB_user'),
+        'PASSWORD': config('DB_pass'),
+        'HOST': config('DB_host'),
+        'PORT': '6543',
+    }
 }
+
+# host:
+# aws-0-ap-south-1.pooler.supabase.com
+
+# port:
+# 6543
+
+# database:
+# postgres
+
+# user:
+# postgres.ahihqemqykvzekojzesg
+
+# pool_mode:
+# transaction
+
+
+
+# import dj_database_url
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+# }
 
 
 
@@ -175,6 +192,6 @@ AUTH_USER_MODEL = 'main.CustomUser'
 
 
 
-CSRF_TRUSTED_ORIGINS = ['https://myproject-l1mykl8o7-bshiyani28s-projects.vercel.app']
+# CSRF_TRUSTED_ORIGINS = ['https://myproject-l1mykl8o7-bshiyani28s-projects.vercel.app']
 # MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
