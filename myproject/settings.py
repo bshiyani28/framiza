@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -180,6 +181,12 @@ TEMPLATES[0]['DIRS'] = [BASE_DIR / 'main/templates']
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # STATIC_URL = 'static/'
 # [FILEPATH] main/views.py [/FILEPATH]
