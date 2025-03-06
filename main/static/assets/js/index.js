@@ -62,15 +62,17 @@ $('.close_preview').on('click', function () {
     $('.main_cnt').show();
 })
 
-
+// Dwn logic
 $('.download_img').on('click', function () {
-    html2canvas(document.querySelector("#capture")).then(canvas => {
-        var cw = canvas.width;
-        var ch = canvas.height;
-        Canvas2Image.saveAsImage(canvas, cw, ch, 'png', 'Framiza-post-maker-by-CDGS.png');
-    });
+    setTimeout(function () {
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+            var cw = canvas.width;
+            var ch = canvas.height;
+            Canvas2Image.saveAsImage(canvas, cw, ch, 'png', 'Framiza-post-maker-by-CDGS.png');
+        });
+    }, 70);
 });
-  
+
 
 
 $('#name').on('keyup change blur', function () {
