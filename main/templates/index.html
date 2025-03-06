@@ -29,6 +29,8 @@
         integrity="sha512-zxBiDORGDEAYDdKLuYU9X/JaJo/DPzE42UubfBw9yg8Qvb2YRRIQ8v4KsGHOx2H1/+sdSXyXxLXv5r7tHc9ygg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- dom-to-image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
         integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
@@ -81,10 +83,10 @@
                             </div>
 
                             <div class="mb-4">
-                                <label class="form-label">Gender:</label>
+                                <label for="flexRadioDefault1" class="form-label">Gender:</label>
                                 <div class="form-check">
-                                    <input data-val="male" class="form-check-input" type="radio" value="male" name="gender"
-                                        id="flexRadioDefault1">
+                                    <input data-val="male" class="form-check-input" type="radio" value="male"
+                                        name="gender" id="flexRadioDefault1">
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Male
                                     </label>
@@ -111,9 +113,10 @@
                         </div>
 
                         <div>
-                            <!-- <button >Download</button> -->
-                            <input type="submit" name="submit" class="btn btn-primary d-none d-sm-block download_img"
-                                value="Download">
+                            <button name="submit"
+                                class="btn btn-primary d-none d-sm-block download_img">Download</button>
+                            <!-- <input type="submit" name="submit" class="btn btn-primary d-none d-sm-block download_img"
+                                value="Download"> -->
                         </div>
 
                     </div>
@@ -143,7 +146,7 @@
                 </div>
 
                 <div class="p-2 my-4 mb-5 d-sm-none">
-                    <button class="btn btn-primary download_img">Download</button>
+                    <button class="btn btn-primary download_img" class="downloadBtn">Download</button>
                 </div>
 
                 <footer class="mt-4">

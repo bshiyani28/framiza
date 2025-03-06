@@ -62,14 +62,34 @@ $('.close_preview').on('click', function () {
     $('.main_cnt').show();
 })
 
-
-$('.download_img').on('click', function () {
-    html2canvas(document.querySelector("#capture")).then(canvas => {
-        var cw = canvas.width;
-        var ch = canvas.height;
-        Canvas2Image.saveAsImage(canvas, cw, ch, 'png', 'Framiza-post-maker-by-CDGS.png');
-    });
-});
+// Dwn Logic
+// $('.download_img').on('click', function () {
+//     html2canvas(document.querySelector("#capture")).then(canvas => {
+//         var cw = canvas.width;
+//         var ch = canvas.height;
+//         Canvas2Image.saveAsImage(canvas, cw, ch, 'png', 'Framiza-post-maker-by-CDGS.png');
+//     });
+// });
+// New Logic
+document.getElementById("downloadBtn").addEventListener("click", function() {
+    // Wait a bit to ensure fonts and images have loaded
+    setTimeout(function() {
+      var node = document.getElementById("capture");
+      domtoimage.toPng(node, {
+        crossOrigin: 'anonymous', // Enables CORS for external resources
+        cacheBust: true
+      })
+      .then(function(dataUrl) {
+        var link = document.createElement("a");
+        link.download = "my-image.png";
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch(function(error) {
+        console.error("Error generating image:", error);
+      });
+    }, 100); // Adjust the delay if necessary
+  });
 
 
 $('#name').on('keyup change blur', function () {
