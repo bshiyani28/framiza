@@ -97,6 +97,7 @@ input::-webkit-inner-spin-button {
 
 .image_prev_modal {
   /* border: 1px solid red; */
+  /* display: none; */
 }
 #upload-demo {
   width: 400px;
