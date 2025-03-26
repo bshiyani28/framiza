@@ -75,6 +75,7 @@ $('.download_img').on('click', function () {
 
 
 
+
 $('#name').on('keyup change blur', function () {
     let name = $(this).val();
     $('#user_name_prev').text(name);
